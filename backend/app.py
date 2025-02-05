@@ -2,7 +2,7 @@ from huggingface_hub import InferenceClient
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-app = Flask(_name_)
+app = Flask(__name__)
 CORS(app)
 
 # Initialize Hugging Face API Client
@@ -16,8 +16,9 @@ def summarize_text(text):
     # Improved prompt for structured, step-wise elaboration
     prompt = (
         f"Idea: {text}\n\n"
-        f"Expand this idea into a structured, step-by-step, point-wise breakdown. Clearly explain how it should work.\n"
-        f"Provide detailed, actionable steps:\n\n"
+        f"Expand this idea into a structured, step-by-step, point-wise breakdown.\n"
+        f"Provide concise and small, actionable steps:\n\n"
+        f"Make sure the points explain the concept in single sentence. \n\n"
         f"1."
     )
 
@@ -52,5 +53,5 @@ def summarize():
     summary = summarize_text(idea_text)
     return jsonify({"summary": summary})
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     app.run(host="0.0.0.0", port=5000, debug=True)
