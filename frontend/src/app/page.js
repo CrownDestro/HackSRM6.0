@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <div className="min-h-screen bg-black text-white">
-      {/* Hero Section */}
+      {/* Hero Section */}<br></br><br></br><br></br><br></br><br></br><br></br>
       <main className="flex flex-col items-center justify-center text-center px-4 mt-20">
         <h1 className="text-5xl md:text-6xl font-bold max-w-4xl mb-6">
           Transform Your Ideas with <span className="gradient-text">AI Power</span>
