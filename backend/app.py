@@ -8,7 +8,7 @@ CORS(app)
 # Initialize Hugging Face API Client
 client = InferenceClient(
     provider="together",  # Specify provider if needed
-      # Replace with your real API key
+    # Replace with your real API key
 )
 
 # Function to summarize text using Hugging Face API
