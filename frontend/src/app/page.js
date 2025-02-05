@@ -17,9 +17,11 @@ export default function Home() {
             Have an idea?
           </button>
         </Link>
+        <Link href="/generate">
           <button className="flex-1 px-6 py-3 bg-purple-600 rounded-lg hover:bg-purple-700 flex items-center justify-center text-center gap-2">
             {'Dont know where to start?'}
           </button>
+          </Link>
         </div>
       </main>
     </div>
