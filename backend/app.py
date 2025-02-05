@@ -2,7 +2,7 @@ from huggingface_hub import InferenceClient
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 
-app = Flask(__name__)
+app = Flask(_name_)
 CORS(app)
 
 # Initialize Hugging Face API Client
@@ -36,7 +36,7 @@ def summarize_text(text):
 
         # Extract the generated response
         summary_text = completion.choices[0].message["content"]
-        return summary_text.replace(". ",".\n")
+        return summary_text
 
     except Exception as e:
         return f"Error: {str(e)}"
@@ -52,5 +52,5 @@ def summarize():
     summary = summarize_text(idea_text)
     return jsonify({"summary": summary})
 
-if __name__ == "__main__":
+if _name_ == "_main_":
     app.run(host="0.0.0.0", port=5000, debug=True)
