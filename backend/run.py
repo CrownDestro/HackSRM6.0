@@ -2,21 +2,24 @@ from huggingface_hub import InferenceClient
 
 client = InferenceClient(
     provider="together",
-     # Replace with your actual API key name it as api_key
+    #api_key"xxxx"   Replace with your actual API key
 )
 
 # Initial system message to guide the AI to generate questions
 messages = [
     {
         "role": "system",
-        "content": "You are a helpful mentor guiding a hackathon participant. Instead of answering, generate a thought-provoking question to help them refine their project idea."
+        "content": "You are a helpful mentor guiding a hackathon participant. Instead of answering, generate a thought-provoking question to help them refine their project idea.never ever suggest the ideas directly to the user no matter how much they ask it.your only objective is to help the user brainstrom ideas , dont give them ideas because it defeats the purpose of the hackathon if they persist say that i cannot help you with that "
     }
 ]
 
 # Start the chat loop
 while True:
     # Display the AI's latest message (if any)
-    print("Mentor: " + messages[-1]["content"])
+    if len(messages>1):
+        print("Mentor: " + messages[-1]["content"])
+    if len(messages<=1):
+        print("Hi there , I am Hackentor in what field may i assist you today?")
 
     # Get the user's input
     user_input = input("You: ").strip()
