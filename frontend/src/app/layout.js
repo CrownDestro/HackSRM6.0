@@ -1,5 +1,5 @@
 import "./globals.css"; // Import global styles if needed
-import Navbar from "../components/Navbar"; // Import your Navbar component
+import Navbar from "../Components/Navbar"; // Import your Navbar component
 
 export default function RootLayout({ children }) {
   return (
