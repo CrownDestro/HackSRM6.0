@@ -26,6 +26,9 @@ export default function GeneratePage() {
 
       const data = await response.json();
       setBotResponse(data.response);
+
+      // Clear the textarea by resetting userInput
+      setUserInput(""); 
     } catch (error) {
       console.error("Error sending message to backend:", error);
     }
@@ -45,21 +48,21 @@ export default function GeneratePage() {
       }
     };
 
-    fetchInitialMessage();
-  }, []);
+    fetchInitialMessage(); // This ensures the message is fetched only once when the component mounts
+  }, []); // Empty dependency array ensures that this effect runs only once
 
   return (
     <>
       <div className="flex flex-col items-center justify-center bg-black px-4 mb-4 mt-8 pt-32">
         <div className="w-full max-w-2xl text-white bg-gray-800 p-4 rounded-lg">
-          <p>{initialMessage || "Loading..."}</p>
-          <p>{botResponse}</p>
+          <p>{initialMessage || "Loading..."}</p> {/* Display initial message or loading text */}
+          <p>{botResponse}</p> {/* Display bot's response */}
         </div>
       </div>
       <div className="flex flex-col items-center justify-center bg-black px-4 mt-10">
         <textarea
           className="w-3/4 md:w-1/2 h-40 p-4 text-lg text-white bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
-          placeholder="Chat with Hackentor"
+          placeholder="Chat with Hackentor (enter your theme to begin with)"
           value={userInput}
           onChange={handleInputChange}
         />
