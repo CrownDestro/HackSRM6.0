@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-
+import ParticlesBackground from "@/Components/ParticlesBackground";
 export default function IdeaPage() {
   const [idea, setIdea] = useState("");
   const [summary, setSummary] = useState(null);
@@ -28,9 +28,10 @@ export default function IdeaPage() {
 
   return (
     <div className="min-h-screen flex flex-col items-center justify-center bg-black px-4">
+      <ParticlesBackground />
       {/* Input Area */}
       <textarea
-        className="w-3/4 md:w-1/2 h-40 p-4 text-lg text-white bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+        className="w-3/4 md:w-1/2 h-40 p-4 text-lg text-white bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 z-40"
         placeholder="Briefly describe your idea..."
         value={idea}
         onChange={(e) => setIdea(e.target.value)}
@@ -38,7 +39,7 @@ export default function IdeaPage() {
 
       {/* Summarize Button */}
       <button
-        className="mt-4 px-6 py-3 bg-purple-600 rounded-lg hover:bg-purple-700 disabled:opacity-50"
+        className="mt-4 px-6 py-3 bg-purple-600 rounded-lg hover:bg-purple-700 z-40"
         onClick={handleSummarize}
         disabled={!idea.trim()}
       >

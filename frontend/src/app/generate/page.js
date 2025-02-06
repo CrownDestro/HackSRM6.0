@@ -1,6 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
-
+import ParticlesBackground from "@/Components/ParticlesBackground";
 export default function GeneratePage() {
   const [userInput, setUserInput] = useState("");
   const [botResponse, setBotResponse] = useState("");
@@ -54,24 +54,26 @@ export default function GeneratePage() {
   return (
     <>
       <div className="flex flex-col items-center justify-center bg-black px-4 mb-4 mt-8 pt-32">
-        <div className="w-full max-w-2xl text-white bg-gray-800 p-4 rounded-lg">
+        <ParticlesBackground />
+        <div className="w-full max-w-2xl text-white bg-gray-800 p-4 rounded-lg z-40">
           <p>{initialMessage || "Loading..."}</p> {/* Display initial message or loading text */}
           <p>{botResponse}</p> {/* Display bot's response */}
         </div>
       </div>
-      <div className="flex flex-col items-center justify-center bg-black px-4 mt-10">
+      <div className="flex flex-col items-center justify-center bg-black px-4 mt-10 z-40">
         <textarea
-          className="w-3/4 md:w-1/2 h-40 p-4 text-lg text-white bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500"
+          className="w-3/4 md:w-1/2 h-40 p-4 text-lg text-white bg-gray-800 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-500 z-40"
           placeholder="Chat with Hackentor (enter your theme to begin with)"
           value={userInput}
           onChange={handleInputChange}
         />
         <button
-          className="mt-4 px-6 py-3 bg-purple-600 rounded-lg hover:bg-purple-700"
+          className="mt-4 px-6 py-3 bg-purple-600 rounded-lg hover:bg-purple-700 z-40"
           onClick={handleSendClick}
         >
           Send
         </button>
+        
       </div>
     </>
   );
